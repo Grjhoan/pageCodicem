@@ -1,0 +1,20 @@
+# la siguiente linea significa este archivo trabajar solo enlaces o urls. 
+Options +FollowSymlinks
+
+RewriteEngine On
+
+# la siguiente linea significa cual es la ruta dentro de mi server web a la cual aplicare urls amigables
+RewriteBase /
+
+# las siguientes lineas significan condiciones al htaccess
+
+# si existen archivos dentro del directrio
+RewriteCond %{SCRIPT_FILENAME} !-d
+
+# Si existe el file
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+# la siguiente linea significa q se sobreescribira una regla
+# La [L] indica que se aplicara solo a esa linea.
+RewriteRule ^(.*)$ index.php?oper=$1 [L]
+# RewriteRule ^(.*)/(.*)$ index.php?mnjr=dfct&oper=$2 [L]
